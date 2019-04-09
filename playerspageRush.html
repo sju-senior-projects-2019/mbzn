@@ -79,7 +79,7 @@ document.getElementById("Player").src = "landscape.jpg";
     <h2>NFL Players Stats</h2>
     
     <div class="dropdown" style="padding-bottom: 10px">
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Passing
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Rushing
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       <li role="presentation"><a role="menuitem" tabindex="-1" href="playerspage.html">Passing</a></li>
@@ -87,7 +87,7 @@ document.getElementById("Player").src = "landscape.jpg";
       <li role="presentation"><a role="menuitem" tabindex="-1" href="playerspageRec.html">Recieving</a></li>
     </ul>
   </div>
-     <!-- PASSING -->    
+     <!-- RUSHING -->   
     <table id="player-table" class="table">
         <thead>
             <tr>
@@ -95,34 +95,30 @@ document.getElementById("Player").src = "landscape.jpg";
                 <th>Player</th>
                 <th>Team</th>
                 <th>Pos</th>
-                <th>Comp</th>
                 <th>Att</th>
-                <th>Pct</th>
                 <th>Att/G</th>
                 <th>Yds</th>
                 <th>Avg</th>
                 <th>Yds/G</th>
                 <th>TD</th>
-                <th>Int</th>
+                <th>Lng</th>
                 <th>1st</th>
                 <th>1st%</th>
-                <th>Lng</th>
                 <th>20+</th>
                 <th>40+</th>
-                <th>Sck</th>
-                <th>Rate</th>
+                <th>FUM</th>
             </tr>
         </thead>
         <tbody> </tbody>
     </table>
     </div>
   
-   <!-- PASSING -->   
+    <!-- RUSHING -->   
 <script type="text/javascript">
         const playerBody = document.querySelector("#player-table > tbody");
        function loadPlayer() {
            const request = new XMLHttpRequest();
-           request.open("get", "playersPassOff.json");
+           request.open("get", "playersRush.json");
            request.onload = () => {
                try {
                    const json = JSON.parse(request.responseText);

@@ -15,12 +15,12 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 20px;     
+  border: 10px solid #ff0000;
 }
-    scroll {
-        overflow-y: scroll;
-        overflow: scroll;
-    }
+scroll {
+    overflow-y: scroll;
+    overflow: scroll;
+}
 td, th {
   border: 3px solid #ffffff;
   text-align: left;
@@ -34,7 +34,7 @@ tr:nth-child(odd) {
 }
 </style>
 
-<body style="background-color:red">
+<body style="background-color:white">
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -44,7 +44,7 @@ tr:nth-child(odd) {
     <ul class="nav navbar-nav">
       <li><a href="file:///Applications/XAMPP/xamppfiles/htdocs/fantasyfootball/homepage.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
       
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Players</a></li>
+        <li><a href="playerspage.html"><span class="glyphicon glyphicon-user"></span> Players</a></li>
       
       <li class="active"><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Teams</a></li>
       
@@ -66,15 +66,289 @@ tr:nth-child(odd) {
     
     
   </div>
+     <!-- TOTAL OFFENSE -->
+    <div class="row" style="margin-bottom: 0px; padding: 0px">
+        <div class="col-sm-6">
+            <h5 align="left">League Leaders: Offense</h5>
+    <table id="team1-table" class="table">
+        <thead>
+            <tr>
+                <th>Total Offense (YPG)</th>
+                <th>Team</th>
+                <th>Total Pts</th>
+            </tr>
+        </thead>
+        <tbody> </tbody>
+    </table>
+    </div>
+     <!-- TOTAL DEFENSE --> 
+        <div class="col-sm-6";>
+            <h5 align="left">League Leaders: Defense</h5>
+    <table id="team4-table" class="table">
+        <thead>
+            <tr>
+                <th>Total Defense (YPG)</th>
+                <th>Team</th>
+                <th>Total Pts</th>
+            </tr>
+        </thead>
+        <tbody> </tbody>
+    </table>
+    </div>
+    </div>
+    <!-- TOTAL OFFENSE -->
+<script type="text/javascript">
+        const teamBody1 = document.querySelector("#team1-table > tbody");
+       function loadTeam1() {
+           const request = new XMLHttpRequest();
+           request.open("get", "teamTotOff.json");
+           request.onload = () => {
+               try {
+                   const json = JSON.parse(request.responseText);
+                   populateTeam1(json);
+               } catch(e) {
+                   console.warn("Could not load teams!");
+               }
+           };
+           request.send();
+       }
+        function populateTeam1 (json) {
+            while(teamBody1.firstChild) {
+                teamBody1.removeChild(teamBody1.firstChild);
+            }   
+            json.forEach((row) => {
+                const tr = document.createElement("tr");
+                row.forEach((cell) => {
+                    const td = document.createElement("td");
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+                    teamBody1.appendChild(tr);
+                });
+            }
+            document.addEventListener("DOMContentLoaded", () => { loadTeam1(); });
+    </script>
+     <!-- TOTAL DEFENSE --> 
+    <script type="text/javascript">
+        const teamBody4 = document.querySelector("#team4-table > tbody");
+       function loadTeam4() {
+           const request = new XMLHttpRequest();
+           request.open("get", "teamTotDef.json");
+           request.onload = () => {
+               try {
+                   const json = JSON.parse(request.responseText);
+                   populateTeam4(json);
+               } catch(e) {
+                   console.warn("Could not load teams!");
+               }
+           };
+           request.send();
+       }
+        function populateTeam4 (json) {
+            while(teamBody4.firstChild) {
+                teamBody4.removeChild(teamBody4.firstChild);
+            }   
+            json.forEach((row) => {
+                const tr = document.createElement("tr");
+                row.forEach((cell) => {
+                    const td = document.createElement("td");
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+                    teamBody4.appendChild(tr);
+                });
+            }
+            document.addEventListener("DOMContentLoaded", () => { loadTeam4(); });
+    </script>
     
-  
-    <h2 align="center">NFL Team Statistics</h2>
+    <!-- PASSING OFFENSE --> 
+    <div class="row">
+        <div class="col-sm-6">
+    <table id="team2-table" class="table">
+        <thead>
+            <tr>
+                <th>Passing (YPG)</th>
+                <th>Team</th>
+                <th>Total Pts</th>
+            </tr>
+        </thead>
+        <tbody> </tbody>
+    </table>
+    </div>
+    <!-- PASSING DEFENSE --> 
+    <div class="col-sm-6">
+    <table id="team5-table" class="table">
+        <thead>
+            <tr>
+                <th>Passing (YPG)</th>
+                <th>Team</th>
+                <th>Total Pts</th>
+            </tr>
+        </thead>
+        <tbody> </tbody>
+    </table>
+    </div>
+    </div>
+    <!-- PASSING OFFENSE --> 
+<script type="text/javascript">
+        const teamBody = document.querySelector("#team2-table > tbody");
+       function loadTeams() {
+           const request = new XMLHttpRequest();
+           request.open("get", "teamPassing.json");
+           request.onload = () => {
+               try {
+                   const json = JSON.parse(request.responseText);
+                   populateTeams(json);
+               } catch(e) {
+                   console.warn("Could not load teams!");
+               }
+           };
+           request.send();
+       }
+        function populateTeams (json) {
+            while(teamBody.firstChild) {
+                teamBody.removeChild(teamBody.firstChild);
+            }   
+            json.forEach((row) => {
+                const tr = document.createElement("tr");
+                row.forEach((cell) => {
+                    const td = document.createElement("td");
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+                    teamBody.appendChild(tr);
+                });
+            }
+            document.addEventListener("DOMContentLoaded", () => { loadTeams(); });
+    </script>
+    <!-- PASSING DEFENSE --> 
+    <script type="text/javascript">
+        const teamBody5 = document.querySelector("#team5-table > tbody");
+       function loadTeam5() {
+           const request = new XMLHttpRequest();
+           request.open("get", "teamPassingDef.json");
+           request.onload = () => {
+               try {
+                   const json = JSON.parse(request.responseText);
+                   populateTeam5(json);
+               } catch(e) {
+                   console.warn("Could not load teams!");
+               }
+           };
+           request.send();
+       }
+        function populateTeam5 (json) {
+            while(teamBody5.firstChild) {
+                teamBody5.removeChild(teamBody5.firstChild);
+            }   
+            json.forEach((row) => {
+                const tr = document.createElement("tr");
+                row.forEach((cell) => {
+                    const td = document.createElement("td");
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+                    teamBody5.appendChild(tr);
+                });
+            }
+            document.addEventListener("DOMContentLoaded", () => { loadTeam5(); });
+    </script>
     
+    <!-- RUSHING OFFENSE --> 
+    <div class="row">
+        <div class="col-sm-6">
+    <table id="team3-table" class="table">
+        <thead>
+            <tr>
+                <th>Rushing (YPG)</th>
+                <th>Team</th>
+                <th>Total Pts</th>
+            </tr>
+        </thead>
+        <tbody> </tbody>
+    </table>
+    </div>
+    <!-- RUSHING DEFENSE --> 
+    <div class="col-sm-6">
+    <table id="team6-table" class="table">
+        <thead>
+            <tr>
+                <th>Rushing (YPG)</th>
+                <th>Team</th>
+                <th>Total Pts</th>
+            </tr>
+        </thead>
+        <tbody> </tbody>
+    </table>
+    </div> 
+    </div>
+<!-- RUSHING OFFENSE --> 
+<script type="text/javascript">
+        const teamBody3 = document.querySelector("#team3-table > tbody");
+       function loadTeam3() {
+           const request = new XMLHttpRequest();
+           request.open("get", "teamRushing.json");
+           request.onload = () => {
+               try {
+                   const json = JSON.parse(request.responseText);
+                   populateTeam3(json);
+               } catch(e) {
+                   console.warn("Could not load teams!");
+               }
+           };
+           request.send();
+       }
+        function populateTeam3 (json) {
+            while(teamBody3.firstChild) {
+                teamBody3.removeChild(teamBody3.firstChild);
+            }   
+            json.forEach((row) => {
+                const tr = document.createElement("tr");
+                row.forEach((cell) => {
+                    const td = document.createElement("td");
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+                    teamBody3.appendChild(tr);
+                });
+            }
+            document.addEventListener("DOMContentLoaded", () => { loadTeam3(); });
+    </script>
+    <!-- RUSHING DEFENSE --> 
+    <script type="text/javascript">
+        const teamBody6 = document.querySelector("#team6-table > tbody");
+       function loadTeam6() {
+           const request = new XMLHttpRequest();
+           request.open("get", "teamRushingDef.json");
+           request.onload = () => {
+               try {
+                   const json = JSON.parse(request.responseText);
+                   populateTeam6(json);
+               } catch(e) {
+                   console.warn("Could not load teams!");
+               }
+           };
+           request.send();
+       }
+        function populateTeam6 (json) {
+            while(teamBody6.firstChild) {
+                teamBody6.removeChild(teamBody6.firstChild);
+            }   
+            json.forEach((row) => {
+                const tr = document.createElement("tr");
+                row.forEach((cell) => {
+                    const td = document.createElement("td");
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+                    teamBody6.appendChild(tr);
+                });
+            }
+            document.addEventListener("DOMContentLoaded", () => { loadTeam6(); });
+    </script>
 
 <div style="overflow-x:auto;">
-
     </div>
     </div>
-
 </body>
 </html>
