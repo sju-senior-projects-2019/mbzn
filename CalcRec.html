@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+  <body>
+   <html lang="en">
+<head>
+<title>Fantasy Football</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+<body style="background-color:red">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Fantasy Football Predictions</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="file:///Applications/XAMPP/xamppfiles/htdocs/fantasyfootball/homepage.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Players</a></li>
+      
+      <li class="active"><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Teams</a></li>
+      
+      <li><a href="#"><span class="glyphicon glyphicon-usd"></span> Spreads</a></li>
+    </ul>
+    </div>
+      </nav>
+<div class="container">
+  
+    <div class="jumbotron text-center">
+      
+   
+   <h1 style="background-color:DodgerBlue;">Fantasy Football Predictions</h1>
+   
+   
+   <h1> Calculate Player Points: Recieving</h1>
+   <h1 id="answer"></h1>
+    
+    Recieving Yards <input type="text" id="num1">
+    <br>
+    <br>
+    Touchdowns <input type="text" id="num2">
+    <br>
+    <br>
+    Fumbles <input type="text" id="num3">
+    <br>
+    <br>
+    Receptions <input type="text" id="num4">
+   <button onclick="calculate()">Calculate</button>
+   
+   
+   <script>
+    function calculate(){
+      var field1=document.getElementById("num1").value;
+      var field2=document.getElementById("num2").value;
+      var field3=document.getElementById("num3").value;
+      var field4=document.getElementById("num4").value;
+      
+      var result=(parseFloat(field1)*0.15) + (parseFloat(field2)*6) - (parseFloat(field3)*2)+(parseFloat(field4)*1);
+      
+      if (!isNaN(result)) {
+         document.getElementById("answer").innerHTML="Players Points: "+ result;
+      }
+    }
+   </script>
+   
+   
+  </body>
+ </html>
