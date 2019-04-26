@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
-<body style="background-color:red">
+<body style="background-color:white">
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -19,13 +19,15 @@
       <a class="navbar-brand" href="#">Fantasy Football Predictions</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="file:///Applications/XAMPP/xamppfiles/htdocs/fantasyfootball/homepage.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li><a href="homepage.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
       
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Players</a></li>
+        <li><a href="playerspage.html"><span class="glyphicon glyphicon-user"></span> Players</a></li>
       
-      <li class="active"><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Teams</a></li>
+      <li><a href="TeamsPage.html"><span class="glyphicon glyphicon-list-alt"></span> Teams</a></li>
       
-      <li><a href="#"><span class="glyphicon glyphicon-usd"></span> Spreads</a></li>
+      <li><a href="SpreadsPage.html"><span class="glyphicon glyphicon-usd"></span> Spreads</a></li>
+        
+        <li class="active"><a href="CalcPass.html"><span class="glyphicon glyphicon-list-alt"></span> Calculator</a></li>
     </ul>
     </div>
       </nav>
@@ -35,21 +37,34 @@
       
    
    <h1 style="background-color:DodgerBlue;">Fantasy Football Predictions</h1>
+    </div>
+    
+    <div class="dropdown" style="padding-bottom: 10px">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">More options
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="CalcPass.html">Calculate: Passing</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="CalcRec.html">Calculate: Recieving</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="CalcRush.html">Calculate: Rushing</a></li>
+    </ul>
+  </div>
    
    
-   <h1> Calculate Player Points: Recieving</h1>
+   <h2> Calculate Player Fantasy Points: Recieving</h2>
    <h1 id="answer"></h1>
     
-    Recieving Yards <input type="text" id="num1">
+    Recieving Yards:  <input type="text" id="num1">
     <br>
     <br>
-    Touchdowns <input type="text" id="num2">
+    Touchdowns:  <input type="text" id="num2">
     <br>
     <br>
-    Fumbles <input type="text" id="num3">
+    Fumbles:  <input type="text" id="num3">
     <br>
     <br>
-    Receptions <input type="text" id="num4">
+    Receptions:  <input type="text" id="num4">
+    <br>
+    <br>
    <button onclick="calculate()">Calculate</button>
    
    
@@ -67,7 +82,8 @@
       }
     }
    </script>
-   
+    
+    </div>
    
   </body>
  </html>
